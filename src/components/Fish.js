@@ -3,7 +3,9 @@ import React from 'react';
 class Fish extends React.Component {
 	render() {
 		return(
-			<li className="menu-fish"></li>
+			<li className="menu-fish">
+				{this.props.details.name}
+			</li>
 		)
 	}
 }
