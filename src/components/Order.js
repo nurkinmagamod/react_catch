@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatPrice } from '../helpers.js';
 
 class Order extends React.Component {
 	render() {
@@ -15,8 +16,14 @@ class Order extends React.Component {
 		return (
 			<div className="order-warp">
 				<h2>Order</h2>
-				<p>{orderIds}</p>
-				{total}
+				<ul className="order">
+					{orderIds.map(key => <li>{key}</li>)}
+					<li className="total">
+					<strong>Total:</strong>
+					{formatPrice(total)}
+					</li>
+				</ul>
+				
 			</div>
 		)
 	}
