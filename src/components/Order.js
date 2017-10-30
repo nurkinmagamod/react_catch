@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatPrice } from '../helpers.js';
+import { formatPrice } from '../helpers';
 
 class Order extends React.Component {
 	constructor() {
@@ -11,7 +11,7 @@ class Order extends React.Component {
 		const count = this.props.order[key];
 
 		if(!fish || fish.status === 'unavailable') {
-			return <li key={key}>Sorry, Fish is no longer available!</li>
+			return <li key={key}>Sorry, {fish ? fish.name: 'fish'} is no longer available!</li>
 		}
 		return (
 			<li key={key}>
@@ -33,12 +33,13 @@ class Order extends React.Component {
 		}, 0);
 		return (
 			<div className="order-warp">
+			{console.log('salsm', orderIds)}
 				<h2>Order</h2>
 				<ul className="order">
-					{orderIds.map(key => <li>{key}</li>)}
+					{orderIds.map(this.renderOrder)}
 					<li className="total">
-					<strong>Total:</strong>
-					{formatPrice(total)}
+						<strong>Total:</strong>
+						{formatPrice(total)}
 					</li>
 				</ul>
 				
