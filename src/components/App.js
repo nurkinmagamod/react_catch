@@ -25,6 +25,13 @@ class App extends React.Component {
 				context: this,
 				state:'fishes'
 			});
+
+		const localStorageRef = localStorage.getItem(`order-${this.props.params.storedId}`);
+		if(localStorageRef){
+			this.setState({
+				order:JSON.parse(localStorageRef)
+			});
+		}
 	}
 
 	componentWillUnmount() {
