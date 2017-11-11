@@ -72,7 +72,7 @@ class App extends React.Component {
 	addToOrder(key) {
 		const order = {...this.state.order};
 		order[key] = order[key] + 1 || 1;
-		this.setState({order})
+		this.setState({order});
 	}
 
 	render(){
@@ -96,7 +96,8 @@ class App extends React.Component {
 				/>
 				<Inventory 
 				fishes={this.state.fishes} 
-				addFish={this.addFish} 
+				addFish={this.addFish}
+				removeFish={this.removeFish} 
 				loadSamples={this.loadSamples} 
 				updateFish={this.updateFish}
 				/>
